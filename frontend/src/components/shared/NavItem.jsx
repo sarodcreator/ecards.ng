@@ -1,25 +1,25 @@
-// export type NavItemProps = {
-//   label: string;
-//   outerSpanClassName?: string;
-//   innerSpanClassName?: string;
-// };
+import React from "react";
 
-export const NavItem = (props) => {
+export const NavItem = ({
+  label,
+  outerSpanClassName,
+  innerSpanClassName,
+}) => {
   return (
-    <li className="box-border caret-transparent min-h-0 min-w-0 pb-3 md:min-h-[auto] md:min-w-[auto]">
+    <li className="pb-3 md:min-h-[auto] md:min-w-[auto]">
       <span
         className={
-          props.outerSpanClassName ??
-          "items-center box-border caret-transparent flex p-3"
+          outerSpanClassName ??
+          "flex items-center p-3"
         }
       >
         <span
           className={
-            props.innerSpanClassName ??
-            "box-border caret-transparent block min-h-0 min-w-0 px-2 md:min-h-[auto] md:min-w-[auto] font-semibold"
+            innerSpanClassName ??
+            "block px-2 font-semibold"
           }
         >
-          {props.label}
+          {label}
         </span>
       </span>
     </li>
