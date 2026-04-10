@@ -1,33 +1,6 @@
-export type LinkItem = {
-  href: string;
-  text: string;
-  iconSrc: string;
-  iconContainerClass: string;
-};
+import React from "react";
 
-export type ImageItem = {
-  src: string;
-  alt: string;
-  sizes: string;
-  containerClass?: string;
-  imgClass: string;
-};
-
-export type MatchCardProps = {
-  variant: string;
-  outerClass: string;
-  innerClass: string;
-  contentSideClass: string;
-  imageSideClass: string;
-  imageFirst: boolean;
-  title: string;
-  links: LinkItem[];
-  images: ImageItem[];
-  iconSrc: string;
-  iconClass: string;
-};
-
-export const MatchCard = (props: MatchCardProps) => {
+export const MatchCard = (props) => {
   const textSection = (
     <div
       className={`box-border caret-transparent flex flex-col h-auto max-w-[600px] min-h-[auto] min-w-[auto] order-2 w-[337.5px] mt-6 mb-8 px-4 md:h-[507px] md:max-w-none md:order-1 md:w-[568px] md:my-0 md:px-12`}
@@ -80,7 +53,7 @@ export const MatchCard = (props: MatchCardProps) => {
             sizes={image.sizes}
             className={image.imgClass}
           />
-        ),
+        )
       )}
       <img src={props.iconSrc} alt="Icon" className={props.iconClass} />
     </div>
