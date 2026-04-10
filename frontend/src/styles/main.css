@@ -1,0 +1,50 @@
+:root {
+    --color-text: #F4FDFF;
+    --background: #101010;
+    --color-bg: #386641;
+    --black: #282828;
+    --paragraph: #b3b3b3;
+    --heading: #fcfcfc;
+    --stroke-dk: #282828;
+    --stroke-lt: #b3b3b3;
+    --card-bg: #1b1b1b;
+    --white: #fcfcfc;
+    --button-hover: #ff693bff;
+
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --secondary: #e5e7eba0;
+    --secondary-hover: #d1d5db;
+
+    --heading-font: 24px;
+    --label-font: 14px;
+    --paragraph-font: 16px;
+    --title: 18px;
+    --title-small: 14px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--paragraph);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--heading-font);
+    color: var(--heading);
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--title);
+    color: var(--heading);
+    font-weight: 500;
+}
+
+p{
+    font-family: 'Metrophobic', sans-serif;
+    font-size: var(--paragraph-font);
+    color: var(--paragraph);
+    font-weight: 400;
+}
