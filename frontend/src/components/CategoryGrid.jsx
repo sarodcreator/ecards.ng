@@ -1,4 +1,4 @@
-import { CategoryCard } from "@/sections/HeroSection/components/CategoryCard";
+import { CategoryCard } from "@/components/CategoryCard";
 
 export const CategoryGrid = () => {
   return (

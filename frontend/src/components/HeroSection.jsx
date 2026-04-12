@@ -1,6 +1,6 @@
-import { HeroTitle } from "@/sections/HeroSection/components/HeroTitle";
-import { CategoryGrid } from "@/sections/HeroSection/components/CategoryGrid";
-import { MagicCardBanner } from "@/sections/HeroSection/components/MagicCardBanner";
+import { HeroTitle } from "@/components/HeroTitle";
+import { CategoryGrid } from "@/components/CategoryGrid";
+import { MagicCardBanner } from "@/components/MagicCardBanner";
 
 export const HeroSection = () => {
   return (

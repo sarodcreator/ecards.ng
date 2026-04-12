@@ -1,10 +1,11 @@
 // import { Navbar } from '../components/shared/Navbar'
 // import { Footer } from '../components/shared/Footer'
 import { HeroSection } from '@/components/HeroSection';
-import { TestimonialSection } from "@/components/TestimonialSection";
-import { ShareSection } from "@/components/ShareSectionn";
-import { ShareFeature } from "@/componentsShareFeature";
+import { TestimonialsSection } from "@/components/TestimonialSection";
+import { ShareSection } from "@/components/ShareSection";
+import { ShareFeature } from "@/components/ShareFeature";
 import { ArticleSection } from "@/components/ArticleSection";
+import FAQ  from "@/components/FAQ"
 
 const landingpage = () => {
   return (
@@ -12,10 +13,11 @@ const landingpage = () => {
       {/* <Navbar /> */}
       <div>
         <HeroSection />
-        <TestimonialSection />
+        <TestimonialsSection />
         <ShareSection />
         <ShareFeature />
         <ArticleSection />
+        <FAQ />
       </div>
       {/* <Footer /> */}
     </div>

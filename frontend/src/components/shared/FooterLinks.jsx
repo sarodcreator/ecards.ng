@@ -3,7 +3,7 @@ import { FooterCompanyLinks } from "@/sections/Footer/components/FooterCompanyLi
 
 export const FooterLinks = () => {
   return (
-    <div className="box-border caret-transparent gap-x-[normal] block justify-normal min-h-[auto] min-w-[auto] gap-y-[normal] w-full py-0 md:gap-x-8 md:flex-row md:justify-between md:gap-y-8 md:pt-6 md:pb-12">
+    <div className="box-border caret-transparent gap-x-[normal] flex flex-col justify-normal min-h-[auto] min-w-[auto] gap-y-[normal] w-full py-0 md:gap-x-8 md:flex-row md:justify-between md:gap-y-8 md:pt-6 md:pb-12">
       <div className="[align-items:normal] box-border caret-transparent gap-x-2 flex flex-row flex-wrap justify-center min-h-[auto] min-w-[auto] gap-y-2 py-4 md:items-start md:flex-col md:justify-start md:py-0">
         <div className="[align-items:normal] box-border caret-transparent gap-x-2 flex flex-row min-h-[auto] min-w-[auto] gap-y-2 md:items-start md:flex-col">
           <a
