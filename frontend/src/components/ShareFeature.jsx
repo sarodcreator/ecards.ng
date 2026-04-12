@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const ShareFeature = (props) => {
   const { iconSrc, title, description } = props;
   return (

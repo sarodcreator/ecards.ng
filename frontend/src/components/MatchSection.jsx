@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const MatchSection = (props) => {
   const { variant, headingText, cards } = props;
   if (variant === "heading") {

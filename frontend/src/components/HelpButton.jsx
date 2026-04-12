@@ -1,5 +1,3 @@
-import React from 'react';
-
 const HelpButton = () => {
   return (
     <div className="fixed text-sm items-center bg-white shadow-[rgba(0,0,0,0.1)_0px_1px_10px_0px] box-border caret-transparent flex h-[50px] justify-center leading-[21px] w-[50px] z-[1000] rounded-3xl right-2.5 bottom-2.5 md:h-11 md:w-[120px] md:right-5 md:bottom-[15px]">

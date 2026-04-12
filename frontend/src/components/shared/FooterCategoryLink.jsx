@@ -1,4 +1,4 @@
-export type FooterCategoryLink = {
+export FooterCategoryLink = {
   href: string;
   label: string;
 };
@@ -10,7 +10,7 @@ export type FooterCategoryProps = {
   wrapperClassName?: string;
 };
 
-export const FooterCategory = (props: FooterCategoryProps) => {
+export const FooterCategory = (props) => {
   const content = (
     <div className="box-border caret-transparent border-b-gray-200 border-l-zinc-800 border-r-zinc-800 border-t-zinc-800 gap-x-[normal] flex flex-col gap-y-[normal] border-b md:border-b-zinc-800 md:gap-x-5 md:gap-y-5 md:border-b-0">
       <div className="box-border caret-transparent min-h-[auto] min-w-[auto]">

@@ -3,7 +3,7 @@ import { NavLogoItem } from "@/components/shared/NavLogoItem";
 
 export const DesktopNav = () => {
   return (
-    <nav className="box-border caret-transparent hidden min-h-0 min-w-0 md:block md:min-h-[auto] md:min-w-[auto]">
+    <nav className="box-border caret-transparent hidden min-h-0 min-w-0 md:block md:min-h-[auto] md:min-w-[auto] mg-0">
       <ul className="items-center box-border caret-transparent flex justify-center z-[200] pl-0">
         <NavItem
           label=" Wedding "

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const ShareSection = (props) => {
   const { variant,title, subtitle, children } = props;
 
