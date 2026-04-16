@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoading, setUser } from '@/redux/authSlice';
 import { GoogleLogin } from '@react-oauth/google';
 
-const Signup = () => {
+export const Signup = () => {
   const [input, setInput] = useState({
     name: '',
     email: '',
@@ -64,7 +64,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    if (user) navigate("/jobs");
+    if (user) navigate("/dashboard");
   }, [user]);
 
   return (
@@ -138,5 +138,3 @@ const Signup = () => {
     </div>
   );
 };
-
-export default Signup;

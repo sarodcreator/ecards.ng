@@ -3,8 +3,9 @@ import LandingPage from './pages/landingpage';
 import { Navbar } from './components/shared/Navbar'
 import { Footer } from './components/shared/Footer'
 import { Login } from './components/auth/login'
-import { Signup } from "./components/auth/Signup"
+import { Signup } from "./components/auth/signup"
 import { Premium } from './components/premium'
+import { Dashboard } from './pages/dashboard'
 
 
 const appRouter = createBrowserRouter([
@@ -19,7 +20,7 @@ const appRouter = createBrowserRouter([
     ),
     children: [
       {
-        path: "home",
+        path: "/home",
         element: <LandingPage />,
       },
       {
@@ -28,11 +29,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp />,
+        element: <Signup />,
       },
       {
         path: "premium",
         element: <Premium />,
+      },
+      {
+        path: 'dashboard',
+        element: <Dashboard/>,
       },
     ],
   },
