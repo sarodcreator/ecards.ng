@@ -1,159 +1,47 @@
 'use client';
 import React, { useState } from 'react';
-import { Search, User, LogIn, Crown, Menu, X, ChevronDown } from 'lucide-react';
+import { Search, User, Crown, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const Nav = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Wedding', hasDropdown: true },
-    { label: 'Birthday', hasDropdown: true },
-    { label: 'Baby & Kids', hasDropdown: true },
-    { label: 'Party', hasDropdown: true },
-    { label: 'Greeting cards', hasDropdown: true },
-    { label: 'Trending', hasDropdown: true },
+    { label: 'Wedding' },
+    { label: 'Birthday' },
+    { label: 'Baby & Kids' },
+    { label: 'Party' },
+    { label: 'Greeting cards' },
+    { label: 'Trending' },
   ];
 
-  // Exact Wedding dropdown from your Image 4
-  const weddingDropdownSections = [
-    {
-      title: 'Wedding Invites',
-      items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-    },
-    {
-      title: 'Save the date',
-      items: ['Rustic', 'Simple', 'Destination', 'Photo']
-    },
-    {
-      title: 'Party',
-      items: ['Engagement party', 'Bridal shower', 'Bachelor party', 'Bachelorette party', 'Rehearsal dinner']
-    },
-    {
-      title: 'Stationery',
-      items: ['RSVP cards', 'Bridesmaid cards', 'Engagement announcements', 'Wedding announcements']
-    },
-    {
-      title: 'Greetings',
-      items: ['Wedding', 'Thank you', 'Engagement']
-    },
-  ];
-
-  // Mega-dropdown structure for ALL nav items (you can replace the lists later)
   const dropdownData = {
-    Wedding: weddingDropdownSections,
+    Wedding: [
+      { title: 'Wedding Invites', items: ['AI', 'Elegant', 'Floral', 'Rustic'] },
+      { title: 'Save the date', items: ['Simple', 'Photo'] },
+      { title: 'Party', items: ['Engagement', 'Bridal shower'] },
+      { title: 'Stationery', items: ['RSVP', 'Announcements'] },
+      { title: 'Greetings', items: ['Wedding', 'Thank you'] },
+    ],
     Birthday: [
-      {
-        title: 'Birthday Cards',
-        items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-      },
-      {
-        title: 'Save the date',
-        items: ['Rustic', 'Simple', 'Destination', 'Photo']
-      },
-      {
-        title: 'Party',
-        items: ['Birthday party', 'Kids party', 'Theme party', 'Engagement party']
-      },
-      {
-        title: 'Stationery',
-        items: ['Thank you cards', 'RSVP cards', 'Bridesmaid cards']
-      },
-      {
-        title: 'Greetings',
-        items: ['Birthday', 'Thank you', 'Engagement']
-      },
+      { title: 'Birthday Cards', items: ['AI', 'Modern', 'Kids'] },
+      { title: 'Party', items: ['Theme party', 'Kids party'] },
     ],
     'Baby & Kids': [
-      {
-        title: 'Baby Shower',
-        items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-      },
-      {
-        title: 'New Baby Cards',
-        items: ['Rustic', 'Simple', 'Destination', 'Photo']
-      },
-      {
-        title: 'Kids Party',
-        items: ['Kids birthday', 'Theme party', 'Baby shower']
-      },
-      {
-        title: 'Stationery',
-        items: ['Thank you cards', 'RSVP cards']
-      },
-      {
-        title: 'Greetings',
-        items: ['Baby', 'Kids', 'Thank you']
-      },
+      { title: 'Baby Shower', items: ['Floral', 'Simple'] },
     ],
     Party: [
-      {
-        title: 'Party Invites',
-        items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-      },
-      {
-        title: 'Save the date',
-        items: ['Rustic', 'Simple', 'Destination', 'Photo']
-      },
-      {
-        title: 'Party',
-        items: ['Engagement party', 'Bridal shower', 'Bachelor party', 'Bachelorette party', 'Rehearsal dinner']
-      },
-      {
-        title: 'Stationery',
-        items: ['RSVP cards', 'Bridesmaid cards', 'Engagement announcements']
-      },
-      {
-        title: 'Greetings',
-        items: ['Party', 'Thank you', 'Engagement']
-      },
+      { title: 'Party Invites', items: ['Elegant', 'Modern'] },
     ],
     'Greeting cards': [
-      {
-        title: 'Greeting Cards',
-        items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-      },
-      {
-        title: 'Thank you cards',
-        items: ['Rustic', 'Simple', 'Destination', 'Photo']
-      },
-      {
-        title: 'Party',
-        items: ['Engagement party', 'Bridal shower']
-      },
-      {
-        title: 'Stationery',
-        items: ['RSVP cards', 'Bridesmaid cards']
-      },
-      {
-        title: 'Greetings',
-        items: ['Wedding', 'Thank you', 'Engagement']
-      },
+      { title: 'Cards', items: ['Thank you', 'Holiday'] },
     ],
     Trending: [
-      {
-        title: 'Trending Designs',
-        items: ['AI', 'Elegant', 'Floral & Botanical', 'Rustic', 'Simple', 'Modern', 'Indian', 'Vintage', 'Beach', 'Photo', 'Destination', 'Premium']
-      },
-      {
-        title: 'Popular',
-        items: ['Rustic', 'Simple', 'Destination', 'Photo']
-      },
-      {
-        title: 'Party',
-        items: ['Engagement party', 'Bridal shower', 'Bachelor party', 'Bachelorette party', 'Rehearsal dinner']
-      },
-      {
-        title: 'Stationery',
-        items: ['RSVP cards', 'Bridesmaid cards', 'Engagement announcements', 'Wedding announcements']
-      },
-      {
-        title: 'Greetings',
-        items: ['Wedding', 'Thank you', 'Engagement']
-      },
+      { title: 'Popular', items: ['Modern', 'AI'] },
     ],
   };
 
@@ -165,232 +53,125 @@ export const Nav = () => {
 
   const handleNavLeave = () => {
     if (window.innerWidth >= 768) {
-      setActiveDropdown(null);
-    }
-  };
-
-  const handleNavClick = (label) => {
-    if (window.innerWidth < 768) {
-      setActiveDropdown(activeDropdown === label ? null : label);
+      setTimeout(() => setActiveDropdown(null), 120);
     }
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex justify-between items-center h-16">
+
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-2xl text-[#54acbf] Roboto">send<span className='text-[#023859]'>cards</span></span>
+          <div className="font-bold text-2xl text-[#54acbf]">
+            send<span className="text-[#023859]">cards</span>
           </div>
 
-          {/* Desktop Navigation - MEGA DROPDOWN FOR EVERY ITEM */}
-          <div className="hidden md:flex items-center justify-between gap-8 text-sm font-medium text-gray-700">
-            {navItems.map((item) => {
-              const sections = dropdownData[item.label] || [];
-              return (
-                <div
-                  key={item.label}
-                  className="relative text-sm font-Roboto"
-                  onMouseEnter={() => handleNavHover(item.label)}
-                  onMouseLeave={handleNavLeave}
-                >
-                  <button
-                    onClick={() => handleNavClick(item.label)}
-                    className="flex items-center gap-1 py-4 hover:text-[#101010] transition-colors"
-                  >
-                    {item.label}
-                    {item.hasDropdown}
-                  </button>
-
-                  {/* MEGA DROPDOWN (for ALL nav items) */}
-                  {item.hasDropdown && activeDropdown === item.label && sections.length > 0 && (
-                    <div className="absolute top-full box-border bg-white shadow-2xl border border-gray-100 rounded-3xl py-8 px-8 w-[1000px] z-50 grid grid-cols-5 gap-8 text-sm">
-                      {sections.map((section) => (
-                        <div key={section.title}>
-                          <div className="font-semibold text-sm mb-3 text-[#222] font-Roboto">{section.title}</div>
-                          <div className="space-y-2">
-                            {section.items.map((subItem) => (
-                              <a
-                                key={subItem}
-                                href="#"
-                                className="block text-xs py-1 text-[#666] hover:text-[#333] transition-colors font-Roboto"
-                              >
-                                {subItem}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-
-                      {/* Upload your own */}
-                      <div className="col-span-5 border-t pt-6 mt-2 flex justify-end">
-                        <button className="flex items-center gap-2 bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 px-6 py-3 rounded-2xl text-sm font-medium transition-colors">
-                          <span className="text-xl">📤</span>
-                          Upload your own
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          {/* Desktop Nav */}
+          <div className="hidden md:flex gap-8">
+            {navItems.map((item) => (
+              <div
+                key={item.label}
+                onMouseEnter={() => handleNavHover(item.label)}
+                onMouseLeave={handleNavLeave}
+                className="cursor-pointer py-4 text-sm"
+              >
+                {item.label}
+              </div>
+            ))}
           </div>
 
           {/* Right Side */}
           <div className="flex items-center gap-4">
-            {/* Search Icon */}
-            <button
-              onClick={() => setShowSearch(!showSearch)}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="Search designs"
-            >
-              <Search className="w-5 h-5 text-gray-600" />
+
+            {/* Search */}
+            <button onClick={() => setShowSearch(!showSearch)}>
+              <Search className="w-5 h-5" />
             </button>
 
-            {/* Auth States */}
+            {/* Auth */}
             {isLoggedIn ? (
-              /* Avatar with its OWN separate dropdown */
               <div
-                className="relative"
                 onMouseEnter={() => setShowUserMenu(true)}
                 onMouseLeave={() => setShowUserMenu(false)}
+                className="relative"
               >
-                <button
-                  onClick={() => setShowUserMenu(!showUserMenu)}
-                  className="flex items-center gap-2 hover:bg-gray-100 px-2 py-1 rounded-3xl transition-colors"
-                >
-                  <div className="w-8 h-8 bg-emerald-100 rounded-2xl flex items-center justify-center border border-white shadow-sm">
-                    <User className="w-5 h-5 text-emerald-700" />
-                  </div>
-                </button>
+                <div className="w-8 h-8 bg-emerald-100 flex items-center justify-center rounded-full cursor-pointer">
+                  <User />
+                </div>
 
                 {showUserMenu && (
-                  <div className="absolute right-0 mt-3 w-64 bg-white rounded-3xl shadow-2xl border border-gray-100 py-2 z-50 overflow-hidden">
-                    <div className="px-6 py-5 border-b">
-                      <p className="font-semibold text-base">Sarah Johnson</p>
-                      <p className="text-gray-500 text-sm">sarah.j@example.com</p>
-                    </div>
-                    <a href="#" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 text-sm">My favorites</a>
-                    <a href="#" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 text-sm">Saved drafts</a>
-                    <a href="#" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 text-sm">My events</a>
-                    <a href="#" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 text-sm">Purchases</a>
-                    <a href="#" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 text-sm">Settings</a>
-                    <div className="border-t my-2" />
+                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-xl border">
                     <button
-                      onClick={() => {
-                        setIsLoggedIn(false);
-                        setShowUserMenu(false);
-                      }}
-                      className="flex items-center gap-3 px-6 py-3 w-full text-left text-red-600 hover:bg-gray-50 text-sm"
+                      onClick={() => setIsLoggedIn(false)}
+                      className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-50"
                     >
-                      Log out
+                      Logout
                     </button>
                   </div>
                 )}
               </div>
             ) : (
-              /* Not Logged In */
-              <div className='flex gap-0'>
-                <button
-                  onClick={() => setIsLoggedIn(true)}
-                  className="hidden md:flex items-center gap-2 px-6 py-2 text-sm font-medium text-gray-700 hover:text-[#023859] rounded-3xl transition-colors"
-                >
+              <div className="flex gap-2">
+                <Link to="/login" className="px-4 py-2 text-sm">
                   Log in
-                </button>
-                <button
-                  onClick={() => setIsLoggedIn(true)}
-                  className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-6 py-2 text-sm font-medium rounded-3xl transition-colors"
+                </Link>
+
+                <Link
+                  to="/premium"
+                  className="bg-violet-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-1"
                 >
                   <Crown className="w-4 h-4" />
-                  Go Premium
-                </button>
+                  Premium
+                </Link>
               </div>
             )}
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
-
-        {/* Expanded Search Bar (exact match to Image 4) */}
-        {showSearch && (
-          <div className="border-t bg-white py-8">
-            <div className="max-w-3xl mx-auto px-6">
-              <div className="relative">
-                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
-                <input
-                  type="text"
-                  placeholder="Search designs..."
-                  className="w-full pl-14 pr-6 py-5 bg-gray-50 border border-gray-200 rounded-3xl focus:border-emerald-500 text-lg placeholder:text-gray-400 focus:outline-none"
-                  autoFocus
-                />
-              </div>
-
-              <div className="mt-10">
-                <p className="text-xs uppercase tracking-[1px] text-gray-500 mb-4">Popular categories</p>
-                <div className="flex flex-wrap gap-3">
-                  {["Baby shower", "Birthday", "Wedding", "Party", "Upload your own", "Thank you cards", "New baby cards", "Birthday cards", "Valentines day cards"].map((cat) => (
-                    <div
-                      key={cat}
-                      className="px-6 py-3 bg-white border border-gray-200 rounded-3xl text-sm hover:border-emerald-400 hover:text-emerald-700 cursor-pointer transition-all"
-                    >
-                      {cat}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
-      {/* Mobile Menu with accordion dropdowns for every nav item */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t px-6 py-8 space-y-8">
-          {navItems.map((item) => {
-            const sections = dropdownData[item.label] || [];
-            return (
-              <div key={item.label} className="text-lg border-b pb-6 last:border-none">
-                <button
-                  onClick={() => handleNavClick(item.label)}
-                  className="flex items-center justify-between w-full text-left font-medium"
-                >
-                  {item.label}
-                  {item.hasDropdown && <ChevronDown className="w-5 h-5" />}
-                </button>
+      {/* 🔥 Animated Mega Dropdown */}
+      <AnimatePresence>
+        {activeDropdown && (
+          <motion.div
+            key="mega-menu"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            onMouseEnter={() => setActiveDropdown(activeDropdown)}
+            onMouseLeave={() => setActiveDropdown(null)}
+            className="absolute left-0 top-full w-full bg-white shadow-xl border-t z-40"
+          >
+            <div className="max-w-7xl mx-auto px-8 py-10 grid grid-cols-5 gap-10">
+              {(dropdownData[activeDropdown] || []).map((section) => (
+                <div key={section.title}>
+                  <h4 className="font-semibold mb-2">{section.title}</h4>
 
-                {/* Mobile mega dropdown content */}
-                {activeDropdown === item.label && sections.length > 0 && (
-                  <div className="mt-6 pl-6 grid grid-cols-2 gap-x-8 gap-y-8 text-base">
-                    {sections.map((section) => (
-                      <div key={section.title}>
-                        <div className="font-semibold mb-3 text-emerald-700">{section.title}</div>
-                        {section.items.map((sub) => (
-                          <a key={sub} href="#" className="block py-1 text-gray-600 hover:text-emerald-600">
-                            {sub}
-                          </a>
-                        ))}
-                      </div>
-                    ))}
-                    <div className="col-span-2 border-t pt-6 flex justify-center">
-                      <button className="flex items-center gap-2 bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 px-6 py-3 rounded-2xl text-sm font-medium">
-                        <span className="text-xl">📤</span>
-                        Upload your own
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  {section.items.map((item) => (
+                    <p
+                      key={item}
+                      className="text-sm text-gray-600 hover:text-black transition cursor-pointer"
+                    >
+                      {item}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Search Bar */}
+      {showSearch && (
+        <div className="border-t p-6">
+          <input
+            placeholder="Search..."
+            className="w-full border p-4 rounded-xl"
+          />
         </div>
       )}
     </nav>
   );
-}
+};
