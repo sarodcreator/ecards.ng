@@ -12,8 +12,12 @@ const __dirname = path.dirname(__filename)
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react()
+    react(),
+   
   ],
+  optimizeDeps: {
+    include: ['redux-persist']
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

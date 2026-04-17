@@ -1,4 +1,4 @@
-export const Login = () => {
+export const Premium  = () => {
     return (
         <div>
             login

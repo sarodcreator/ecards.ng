@@ -9,11 +9,18 @@ import {
     PERSIST,
     PURGE,
     REGISTER,
-} from 'redux-perist'
-import storage from 'redux-persist/lib/storage'
+} from 'redux-persist'
+
+// import storage from 'redux-persist/lib/storage'
+
+const storage = {
+    getItem: (key) => Promise.resolve(localStorage.getItem(key)),
+    setItem: (key, value) => promise.resolve(localStorage.setIem(key, value)),
+    removeItem: (key) => Promise.resolve(localStorage.removeItem(key)),
+};
 
 const persistConfig = {
-    key: 'root',
+    key: "root",
     version: 1,
     storage,
 };
@@ -27,9 +34,10 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) => 
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredAction: [FLUSH, REHYDRATE, PERSIST, PAUSE, PURGE, REGISTER],
+                ignoredActions: [FLUSH, REHYDRATE, PERSIST, PAUSE, PURGE, REGISTER],
             },
         }),
+        devTools: true,
 });
 
 export const persistor = persistStore(store);

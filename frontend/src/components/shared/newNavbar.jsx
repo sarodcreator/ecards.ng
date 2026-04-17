@@ -1,9 +1,8 @@
 'use client';
-
 import React, { useState } from 'react';
 import { Search, User, LogIn, Crown, Menu, X, ChevronDown } from 'lucide-react';
 
-export default function GreetingsIslandNav() {
+export const Nav = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -182,41 +181,40 @@ export default function GreetingsIslandNav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-3xl">🌴</span>
-            <span className="font-bold text-2xl text-emerald-700 tracking-tight">Greetings Island</span>
+            <span className="font-bold text-2xl text-[#54acbf] Roboto">send<span className='text-[#023859]'>cards</span></span>
           </div>
 
           {/* Desktop Navigation - MEGA DROPDOWN FOR EVERY ITEM */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+          <div className="hidden md:flex items-center justify-between gap-8 text-sm font-medium text-gray-700">
             {navItems.map((item) => {
               const sections = dropdownData[item.label] || [];
               return (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative text-sm font-Roboto"
                   onMouseEnter={() => handleNavHover(item.label)}
                   onMouseLeave={handleNavLeave}
                 >
                   <button
                     onClick={() => handleNavClick(item.label)}
-                    className="flex items-center gap-1 py-4 hover:text-emerald-600 transition-colors"
+                    className="flex items-center gap-1 py-4 hover:text-[#101010] transition-colors"
                   >
                     {item.label}
-                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                    {item.hasDropdown}
                   </button>
 
                   {/* MEGA DROPDOWN (for ALL nav items) */}
                   {item.hasDropdown && activeDropdown === item.label && sections.length > 0 && (
-                    <div className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-3xl py-8 px-8 w-[920px] z-50 grid grid-cols-5 gap-8 text-sm">
+                    <div className="absolute top-full box-border bg-white shadow-2xl border border-gray-100 rounded-3xl py-8 px-8 w-[1000px] z-50 grid grid-cols-5 gap-8 text-sm">
                       {sections.map((section) => (
                         <div key={section.title}>
-                          <div className="font-semibold text-emerald-700 mb-3 text-base">{section.title}</div>
+                          <div className="font-semibold text-sm mb-3 text-[#222] font-Roboto">{section.title}</div>
                           <div className="space-y-2">
                             {section.items.map((subItem) => (
                               <a
                                 key={subItem}
                                 href="#"
-                                className="block py-1 hover:text-emerald-600 transition-colors"
+                                className="block text-xs py-1 text-[#666] hover:text-[#333] transition-colors font-Roboto"
                               >
                                 {subItem}
                               </a>
@@ -293,12 +291,11 @@ export default function GreetingsIslandNav() {
               </div>
             ) : (
               /* Not Logged In */
-              <>
+              <div className='flex gap-0'>
                 <button
                   onClick={() => setIsLoggedIn(true)}
-                  className="hidden md:flex items-center gap-2 px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-3xl transition-colors"
+                  className="hidden md:flex items-center gap-2 px-6 py-2 text-sm font-medium text-gray-700 hover:text-[#023859] rounded-3xl transition-colors"
                 >
-                  <LogIn className="w-4 h-4" />
                   Log in
                 </button>
                 <button
@@ -308,7 +305,7 @@ export default function GreetingsIslandNav() {
                   <Crown className="w-4 h-4" />
                   Go Premium
                 </button>
-              </>
+              </div>
             )}
 
             {/* Mobile Hamburger */}
