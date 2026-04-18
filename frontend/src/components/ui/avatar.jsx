@@ -31,6 +31,3 @@ className
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
 
 export { Avatar, AvatarImage, AvatarFallback }
-
-How does this code relate with the navigation, and in this case is the avatar gotten from the back end
-Also if there's no avatar is the first letters of the users names used
