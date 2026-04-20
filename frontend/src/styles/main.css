@@ -1,12 +1,13 @@
 :root {
     --color-text: #F4FDFF;
-    --background: #101010;
-    --color-bg: #386641;
+    --background: #1f1f1fff;
+    --color-bg: #00578dff;
+    --color-bg-hover: #54acbf;
     --black: #282828;
     --paragraph: #b3b3b3;
     --heading: #fcfcfc;
     --stroke-dk: #282828;
-    --stroke-lt: #b3b3b3;
+    --stroke-lt: #4d4d4dff;
     --card-bg: #1b1b1b;
     --white: #fcfcfc;
     --button-hover: #ff693bff;

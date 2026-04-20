@@ -103,7 +103,7 @@ export const Nav = () => {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -15, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 -translate-x-1/2 top-full bg-white shadow-2xl border border-gray-100 rounded-3xl py-8 px-8 w-screen max-w-[1200px] z-50 grid grid-cols-5 gap-8 text-sm"
+                        className="absolute -left-1 -translate-x-0 top-16 bg-white shadow-2xl border border-gray-100 rounded-3xl py-8 px-8 w-screen max-w-[1200px] z-50 grid grid-cols-5 gap-8 text-sm"
                       >
                         {sections.map((section) => (
                           <div key={section.title}>
