@@ -100,19 +100,19 @@ export const Signup = () => {
   return (
     <div className="min-h-screen flex flex-row-reverse items-center justify-center bg-inherit">
 
-      {/* Image */}
+     
       <div className="h-[768px] w-[60%] overflow-hidden">
         <img src={image} className="w-full -mt-[280px]" />
       </div>
 
-      {/* Form */}
+      
       <div className="w-full max-w-md rounded-2xl shadow-lg p-6 space-y-5">
 
         <h1 className="text-3xl text-right">Create Account</h1>
 
         <form onSubmit={submitHandler} className="space-y-4">
 
-          {/* Full Name */}
+          
           <div>
             <Label>Full Name</Label>
             <div className="relative">
@@ -121,7 +121,7 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* Email */}
+          
           <div>
             <Label>Email</Label>
             <div className="relative">
@@ -130,7 +130,7 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* Phone */}
+          
           <div>
             <Label>Phone Number</Label>
             <div className="relative">
@@ -139,7 +139,7 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* Country */}
+          
           <div>
             <Label>Country</Label>
             <div className="relative">
@@ -148,13 +148,13 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* DOB */}
+         
           <div>
             <Label>Date of Birth</Label>
             <Input type="date" name="dob" value={input.dob} onChange={changeEventHandler} />
           </div>
 
-          {/* Password */}
+          
           <div>
             <Label>Password</Label>
             <div className="relative">
@@ -173,7 +173,7 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* Confirm Password */}
+         
           <div>
             <Label>Confirm Password</Label>
             <div className="relative">
@@ -189,27 +189,27 @@ export const Signup = () => {
             </div>
           </div>
 
-          {/* Submit */}
+         
           <Button disabled={loading} className="w-full">
             {loading ? "Loading..." : "Create Account"}
           </Button>
 
         </form>
 
-        {/* Divider */}
+        
         <div className="flex items-center gap-2">
           <div className="flex-1 border"></div>
           <span className="text-xs">OR</span>
           <div className="flex-1 border"></div>
         </div>
 
-        {/* Google */}
+       
         <Button onClick={() => googleLogin()} className="w-full">
           <FcGoogle className="mr-2" />
           Continue with Google
         </Button>
 
-        {/* Login */}
+        
         <p className="text-center text-sm">
           Already have an account?
           <Link to="/login" className="text-blue-400 ml-1">Login</Link>
