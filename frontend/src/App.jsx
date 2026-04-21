@@ -4,6 +4,7 @@ import { Navbar } from './components/shared/Navbar'
 import { Footer } from './components/shared/Footer'
 import { Login } from './components/auth/login'
 import { Signup } from "./components/auth/signup"
+import { VerifyOtp } from './components/Auth/verifyOtp'
 import { Premium } from './components/premium'
 import { Dashboard } from './pages/dashboard'
 
@@ -41,7 +42,10 @@ const appRouter = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
       },
-]);
+{
+path: '/verify-otp'
+element: <VerifyOtp />},
+
 
 function App() {
   return (
