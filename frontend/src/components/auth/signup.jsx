@@ -226,7 +226,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { USER_API_ENDPOINT } from '@/utils/constant';
+import { USER_API_END_POINT } from '@/utils/constant';
 import { toast } from 'sonner';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading, setUser } from '@/redux/authSlice';
@@ -236,7 +236,7 @@ import { Mail, Lock, Eye, EyeOff, User } from 'lucide-react';
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from '@react-oauth/google';
 
-import { PhoneField } from '@/components/PhoneField';
+import { PhoneField } from '@/components/ui/PhoneField';
 
 export const Signup = () => {
 
