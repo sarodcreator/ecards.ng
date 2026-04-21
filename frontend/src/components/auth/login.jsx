@@ -22,7 +22,7 @@ export const Login = () => {
         const res = await axios.post(
           `${USER_API_END_POINT}/google-auth`,
           {
-            token: tokenResponse.accees_token,
+            token: tokenResponse.access_token,
           }
         );
 

@@ -20,22 +20,12 @@ import store, { persistor } from "./redux/store";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-          
-          
-          <Elements stripe={stripePromise}>
             <App />
-          </Elements>
-
         </GoogleOAuthProvider>
       </PersistGate>
     </Provider>

@@ -19,7 +19,6 @@ export const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Google Login
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {

@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Modal from "./Modal";
 import CheckoutForm from "./CheckoutForm";
 
-export default function PremiumModal({ isOpen, onClose }) {
+export const Premium = ({ isOpen, onClose }) => {
   const [plan, setPlan] = useState("yearly");
 
   return (
