@@ -15,7 +15,7 @@ import {
 
 const storage = {
     getItem: (key) => Promise.resolve(localStorage.getItem(key)),
-    setItem: (key, value) => promise.resolve(localStorage.setIem(key, value)),
+    setItem: (key, value) => Promise.resolve(localStorage.setIem(key, value)),
     removeItem: (key) => Promise.resolve(localStorage.removeItem(key)),
 };
 

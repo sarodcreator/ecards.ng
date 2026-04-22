@@ -4,10 +4,10 @@ import "react-phone-input-2/lib/style.css";
 import { Phone } from "lucide-react";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
-export const PhoneField = ({ value, onChange, error, setError }) => {
+const PhoneField = ({ value, onChange, error, setError }) => {
   const [country, setCountry] = useState("ng");
 
-  // ✅ Auto-detect country
+  // Auto-detect country
   useEffect(() => {
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
@@ -22,7 +22,7 @@ export const PhoneField = ({ value, onChange, error, setError }) => {
   const handleChange = (phone, countryData) => {
     onChange(phone, countryData);
 
-    // ✅ validation
+    // validation
     if (!phone || !isValidPhoneNumber(`+${phone}`)) {
       setError("Invalid phone number");
     } else {
@@ -44,7 +44,6 @@ export const PhoneField = ({ value, onChange, error, setError }) => {
           enableSearch
           countryCodeEditable={false}
 
-          // ✅ THIS is the correct way to format
           format="(....) ...-...."
 
           containerClass="!w-full"
@@ -61,3 +60,5 @@ export const PhoneField = ({ value, onChange, error, setError }) => {
     </div>
   );
 };
+
+export default PhoneField;
