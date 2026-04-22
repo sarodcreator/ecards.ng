@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import PhoneInput from "react-phone-input-2";
+import PhoneInput from "react-phone-input-2/lib/PhoneInput";   // ← THIS IS THE FIX
 import "react-phone-input-2/lib/style.css";
 import { Phone } from "lucide-react";
 import { isValidPhoneNumber } from "libphonenumber-js";
+import { Label } from "@/components/ui/label";   // ← using shadcn Label for consistency
 
-const PhoneField = ({ value, onChange, error, setError }) => {
+export const PhoneField = ({ value, onChange, error, setError }) => {
   const [country, setCountry] = useState("ng");
 
-  // Auto-detect country
+  // Auto-detect country based on IP
   useEffect(() => {
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
@@ -22,7 +23,7 @@ const PhoneField = ({ value, onChange, error, setError }) => {
   const handleChange = (phone, countryData) => {
     onChange(phone, countryData);
 
-    // validation
+    // Validation
     if (!phone || !isValidPhoneNumber(`+${phone}`)) {
       setError("Invalid phone number");
     } else {
@@ -32,10 +33,10 @@ const PhoneField = ({ value, onChange, error, setError }) => {
 
   return (
     <div>
-      <label className="text-sm font-semibold">Phone Number</label>
+      <Label>Phone Number</Label>
 
       <div className="relative">
-        <Phone className="absolute top-2 left-2 w-4 z-10 text-gray-400" />
+        <Phone className="absolute top-2 left-2 w-4 h-4 text-muted-foreground z-10" />
 
         <PhoneInput
           country={country}
@@ -43,16 +44,13 @@ const PhoneField = ({ value, onChange, error, setError }) => {
           onChange={handleChange}
           enableSearch
           countryCodeEditable={false}
-
-          format="(....) ...-...."
-
           containerClass="!w-full"
           inputClass={`
-            !w-full !pl-[48px] !py-2 !bg-transparent !rounded-md
-            ${error ? "!border-red-500" : "!border-gray-300"}
+            !w-full !pl-12 !py-2 !bg-transparent !rounded-md border
+            ${error ? "!border-red-500 focus:!border-red-500" : "!border-input"}
           `}
-          buttonClass="!bg-transparent !border-none !left-[28px]"
-          dropdownClass="!bg-white !text-black"
+          buttonClass="!bg-transparent !border-0 !left-8"
+          dropdownClass="!bg-popover !text-popover-foreground"
         />
       </div>
 
@@ -60,5 +58,3 @@ const PhoneField = ({ value, onChange, error, setError }) => {
     </div>
   );
 };
-
-export default PhoneField;
