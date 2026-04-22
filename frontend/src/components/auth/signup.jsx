@@ -371,7 +371,7 @@ export const Signup = () => {
               setInput({
                 ...input,
                 phoneNumber: phone,
-                country: countryData.name,
+                country: countryData?.name || "",
               })
             }
             error={phoneError}

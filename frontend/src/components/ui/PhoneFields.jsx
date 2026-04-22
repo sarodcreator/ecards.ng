@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import PhoneInput from "react-phone-input-2/lib/PhoneInput";   // ← THIS IS THE FIX
+import PhoneInput from "react-phone-input-2";  
 import "react-phone-input-2/lib/style.css";
 import { Phone } from "lucide-react";
 import { isValidPhoneNumber } from "libphonenumber-js";
-import { Label } from "@/components/ui/label";   // ← using shadcn Label for consistency
+import { Label } from "@/components/ui/label";
 
-export const PhoneField = ({ value, onChange, error, setError }) => {
+const PhoneField = ({ value, onChange, error, setError }) => {
   const [country, setCountry] = useState("ng");
 
   // Auto-detect country based on IP
@@ -21,7 +21,7 @@ export const PhoneField = ({ value, onChange, error, setError }) => {
   }, []);
 
   const handleChange = (phone, countryData) => {
-    onChange(phone, countryData);
+    onChange?.(phone, countryData);
 
     // Validation
     if (!phone || !isValidPhoneNumber(`+${phone}`)) {
@@ -58,3 +58,5 @@ export const PhoneField = ({ value, onChange, error, setError }) => {
     </div>
   );
 };
+
+export default PhoneField;
