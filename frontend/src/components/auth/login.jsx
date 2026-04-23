@@ -20,7 +20,7 @@ export const Login = () => {
     onSuccess: async (tokenResponse) => {
       try {
         const res = await axios.post(
-          `${USER_API_END_POINT}/google-auth`,
+          `${USER_API_ENDPOINT}/google-auth`,
           {
             token: tokenResponse.access_token,
           }
@@ -162,7 +162,7 @@ export const Login = () => {
         <div>
           <p className='!text-[10px] text-bold font-600'>OR</p>
         </div>
-        <div className='h-[0.5px] border-[1px] w-[100%] border-solid border-[#282828]'>
+        <div className='h-[1px] border-[1px] w-[100%] border-solid border-[#282828]'>
         </div>
       </div>
       <Button type="submit" onClick={() => GoogleLogin()} className='w-[100%] mb-[16px] mt-[8px] btn-outline'>

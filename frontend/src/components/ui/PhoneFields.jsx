@@ -18,7 +18,7 @@ const PhoneField = ({ value, onChange, error, setError }) => {
         if (data?.country_code) {
           setCountry(data.country_code); // e.g. "NG"
         }
-      } catch (err) {
+      } catch (error) {
         console.log("Country detection failed");
       }
     };
