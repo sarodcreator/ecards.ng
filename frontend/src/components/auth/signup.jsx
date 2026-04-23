@@ -326,30 +326,35 @@ export const Signup = () => {
   }, [user]);
 
   return (
-    <div className="min-h-screen flex flex-row-reverse items-center justify-center">
+    <div className="min-h-screen flex flex-row items-top justify-center">
       {/* Image */}
-      <div className="max-h-[768px] w-[100%] overflow-hidden">
-        <img src={image} className="object-contain -mt-[400px]" />
+      <div className=" h-[calc(100vh -80px] w-[100%]  rounded-tr-[50px] rounded-br-[50px]">
+        <img src={image} className="object-cover -mt-[240px]" />
       </div>
 
       {/* Form */}
-      <div className="w-[40%] p-[40px]">
-        <div className="flex items-center pl-0 !text-left gap-2 !mb-[8px]">
-          <span className="font-bold text-1xl text-[#54acbf]">
-            send<span className="text-[#00578dff]">cards</span>
-          </span>
+      <div className="w-[60%] pl-[40px] pr-[64px]">
+        <div className="flex items-center pl-0 !text-right mt-[24px] r-0 gap-2 !mb-[80px]">
+          <Link to="/home">
+            <span className="font-bold text-1xl text-[#54acbf] !text-right">
+              send<span className="text-[#00578dff]">cards</span>
+            </span>
+          </Link>
         </div>
         <h1 className="!text-[32px] !mb-[12px] !text-left">Create Account</h1>
-        <p className="text-left !mb-[24px]">
+        <p className="text-left !mb-[24px] text-[16px]">
           Sign in to access your dashboard and send Ecards <br /> to your family
           and friends
         </p>
 
-        <form onSubmit={submitHandler} className="w-[100%]">
+        <form
+          onSubmit={submitHandler}
+          className="flex flex-col w-[100%] gap-[16px]"
+        >
           {/* Name */}
           <div className="flex flex-col gap-0 items-left text-left bg-transparent">
             <Label className="text-[14px] font-bold !text-left w-[100%]">
-              Full Name
+              Full Name:
             </Label>
             <div className="relative">
               <User className="absolute top-2 left-2 w-4" />
@@ -364,7 +369,7 @@ export const Signup = () => {
           {/* Email */}
           <div className="flex flex-col gap-0 items-left text-left">
             <Label className="text-[14px] w-[100px] font-bold !text-left">
-              Email
+              Email:
             </Label>
             <div className="relative">
               <Mail className="absolute top-2 left-2 w-4" />
@@ -377,23 +382,30 @@ export const Signup = () => {
             </div>
           </div>
 
-          <PhoneField
-            value={input.phoneNumber}
-            onChange={(phone, countryData) =>
-              setInput({
-                ...input,
-                phoneNumber: phone,
-                country: countryData?.name || "",
-              })
-            }
-            error={phoneError}
-            setError={setPhoneError}
-          />
+          <div className="flex flex-col gap-0 items-left text-left">
+            <Label className="text-[14px] w-[100px] font-bold !text-left">
+              Phone:
+            </Label>
+            <div className="">
+              <PhoneField
+                value={input.phoneNumber}
+                onChange={(phone, countryData) =>
+                  setInput({
+                    ...input,
+                    phoneNumber: phone,
+                    country: countryData?.name || "",
+                  })
+                }
+                error={phoneError}
+                setError={setPhoneError}
+              />
+            </div>
+          </div>
 
           {/* DOB */}
           <div className="flex flex-col gap-0 items-left text-left">
             <Label className="text-[14px] font-bold !text-left">
-              Date of Birth
+              Date of Birth:
             </Label>
             <Input
               type="date"
@@ -405,7 +417,9 @@ export const Signup = () => {
 
           {/* Password */}
           <div className="flex flex-col gap-0 items-left text-left">
-            <Label className="text-[14px] font-bold !text-left">Password</Label>
+            <Label className="text-[14px] font-bold !text-left">
+              Password:
+            </Label>
             <div className="relative">
               <Lock className="absolute top-2 left-2 w-4" />
               <Input
@@ -427,9 +441,9 @@ export const Signup = () => {
           </div>
 
           {/* Confirm Password (FIXED) */}
-          <div className="flex flex-col gap-0 items-left text-left">
+          {/* <div className="flex flex-col gap-0 items-left text-left">
             <Label className="text-[14px] font-bold !text-left">
-              Confirm Password
+              Confirm Password:
             </Label>
             <div className="relative items-center">
               <Lock className="absolute top-2 left-2 w-4" />
@@ -442,10 +456,10 @@ export const Signup = () => {
                 maxLength={24}
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Submit */}
-          <Button disabled={loading} className="w-full">
+          <Button disabled={loading} className="w-full mb-[16px] mt-[24px]">
             {loading ? "Loading..." : "Create Account"}
           </Button>
         </form>
@@ -463,7 +477,7 @@ export const Signup = () => {
         <Button
           type="submit"
           onClick={() => googleLogin()}
-          className="w-[100%] mb-[16px] mt-[8px] btn-outline"
+          className="w-[100%] mb-[16px] mt-[16px] btn-outline"
         >
           <FcGoogle size={17} className="mr-[8px]" />
           Continue with Google

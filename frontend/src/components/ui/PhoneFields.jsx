@@ -8,7 +8,7 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 const PhoneField = ({ value, onChange, error, setError }) => {
   const [country, setCountry] = useState("NG"); // fallback
 
-  // 🌍 Auto-detect user country
+
   useEffect(() => {
     const detectCountry = async () => {
       try {
@@ -19,7 +19,7 @@ const PhoneField = ({ value, onChange, error, setError }) => {
           setCountry(data.country_code); // e.g. "NG"
         }
       } catch (error) {
-        console.log("Country detection failed");
+        console.log(error);
       }
     };
 
@@ -37,25 +37,31 @@ const PhoneField = ({ value, onChange, error, setError }) => {
   };
 
   return (
-    <div className="space-y-1">
-      <Label>Phone Number</Label>
+    <div className="flex flex-col gap-0 items-left text-left">
+      {/* <Label className="text-[14px] !w-[100px] font-bold !text-left"> */}
+      {/* Phone Number */}
+      {/* </Label> */}
 
       <div className="relative">
-        <Phone className="absolute top-3 left-3 w-4 h-4 text-muted-foreground z-10" />
+        {/* <Phone className="absolute top-3 left-3 w-4 h-4 text-muted-foreground z-10" /> */}
 
         <PhoneInput
           international
-          defaultCountry={country}   // 🔥 auto-detected
+          defaultCountry={country}
           value={value}
           onChange={handleChange}
           className={`
-            w-full pl-10 pr-3 py-2 rounded-md border text-sm bg-transparent
-            ${error ? "border-red-500" : "border-input"}
+            w-full pl-[8px] pr-3 py-2 rounded-md border text-sm bg-transparent
+            ${
+              error
+                ? "border-red-500 text-red-400"
+                : "border-input"
+            }
           `}
         />
       </div>
 
-      {error && <p className="text-red-500 text-xs">{error}</p>}
+      {error && <p className="!text-red-500 !text-[12px]">{error}</p>}
     </div>
   );
 };
