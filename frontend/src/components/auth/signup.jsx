@@ -328,25 +328,29 @@ export const Signup = () => {
   return (
     <div className="min-h-screen flex flex-row-reverse items-center justify-center">
       {/* Image */}
-      <div className="h-[768px] w-[60%] overflow-hidden">
-        <img src={image} className="w-full -mt-[280px]" />
+      <div className="max-h-[768px] w-[100%] overflow-hidden">
+        <img src={image} className="object-contain -mt-[400px]" />
       </div>
 
       {/* Form */}
-      <div className="w-full max-w-md rounded-2xl shadow-lg p-6 space-y-5">
-        <div className="w-[40%] p-[40px]">
-          <div className="flex items-center gap-2 mb-[64px]">
-            <span className="font-bold text-1xl text-[#54acbf]">
-              send<span className="text-[#00578dff]">cards</span>
-            </span>
-          </div>
+      <div className="w-[40%] p-[40px]">
+        <div className="flex items-center pl-0 !text-left gap-2 !mb-[8px]">
+          <span className="font-bold text-1xl text-[#54acbf]">
+            send<span className="text-[#00578dff]">cards</span>
+          </span>
         </div>
-        <h1 className="!text-[32px] !mb-[8px] !text-left">Create Account</h1>
+        <h1 className="!text-[32px] !mb-[12px] !text-left">Create Account</h1>
+        <p className="text-left !mb-[24px]">
+          Sign in to access your dashboard and send Ecards <br /> to your family
+          and friends
+        </p>
 
-        <form onSubmit={submitHandler} className="space-y-4">
+        <form onSubmit={submitHandler} className="w-[100%]">
           {/* Name */}
-          <div>
-            <Label>Full Name</Label>
+          <div className="flex flex-col gap-0 items-left text-left bg-transparent">
+            <Label className="text-[14px] font-bold !text-left w-[100%]">
+              Full Name
+            </Label>
             <div className="relative">
               <User className="absolute top-2 left-2 w-4" />
               <Input
@@ -358,8 +362,10 @@ export const Signup = () => {
           </div>
 
           {/* Email */}
-          <div>
-            <Label>Email</Label>
+          <div className="flex flex-col gap-0 items-left text-left">
+            <Label className="text-[14px] w-[100px] font-bold !text-left">
+              Email
+            </Label>
             <div className="relative">
               <Mail className="absolute top-2 left-2 w-4" />
               <Input
@@ -385,8 +391,10 @@ export const Signup = () => {
           />
 
           {/* DOB */}
-          <div>
-            <Label>Date of Birth</Label>
+          <div className="flex flex-col gap-0 items-left text-left">
+            <Label className="text-[14px] font-bold !text-left">
+              Date of Birth
+            </Label>
             <Input
               type="date"
               name="dob"
@@ -396,8 +404,8 @@ export const Signup = () => {
           </div>
 
           {/* Password */}
-          <div>
-            <Label>Password</Label>
+          <div className="flex flex-col gap-0 items-left text-left">
+            <Label className="text-[14px] font-bold !text-left">Password</Label>
             <div className="relative">
               <Lock className="absolute top-2 left-2 w-4" />
               <Input
@@ -419,9 +427,11 @@ export const Signup = () => {
           </div>
 
           {/* Confirm Password (FIXED) */}
-          <div className='flex flex-col gap-0 items-left text-left'>
-            <Label className='text-[14px] font-bold'>Confirm Password</Label>
-            <div className='relative items-center'>
+          <div className="flex flex-col gap-0 items-left text-left">
+            <Label className="text-[14px] font-bold !text-left">
+              Confirm Password
+            </Label>
+            <div className="relative items-center">
               <Lock className="absolute top-2 left-2 w-4" />
               <Input
                 type={showPassword ? "text" : "password"}
@@ -452,7 +462,7 @@ export const Signup = () => {
         {/* Google */}
         <Button
           type="submit"
-          onClick={() => GoogleLogin()}
+          onClick={() => googleLogin()}
           className="w-[100%] mb-[16px] mt-[8px] btn-outline"
         >
           <FcGoogle size={17} className="mr-[8px]" />

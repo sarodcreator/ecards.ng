@@ -26,7 +26,6 @@ const PhoneField = ({ value, onChange, error, setError }) => {
     detectCountry();
   }, []);
 
-  // 📱 Handle input
   const handleChange = (phone) => {
     onChange?.(phone);
 
