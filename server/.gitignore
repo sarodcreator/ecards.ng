@@ -1,0 +1,3 @@
+node_modules
+generate-secret-key.js
+.env
